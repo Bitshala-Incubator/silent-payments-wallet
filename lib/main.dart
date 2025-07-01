@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// cupertino 
-import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(BitcoinWalletApp());
