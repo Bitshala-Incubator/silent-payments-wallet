@@ -65,7 +65,9 @@ class CoverScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (final context) => const Intro()),
+                      MaterialPageRoute(
+                        builder: (final context) => const Intro(),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(

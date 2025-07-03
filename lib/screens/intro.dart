@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'recovery_phrase.dart';
 
 class Intro extends StatelessWidget {
   const Intro({Key? key}) : super(key: key);
@@ -7,7 +8,7 @@ class Intro extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -17,8 +18,8 @@ class Intro extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 32),
-              Text(
+              const SizedBox(height: 100),
+              const Text(
                 "First, let's create your recovery phrase",
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -27,30 +28,38 @@ class Intro extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 40),
               Text(
-                'A recovery phrase is a series of 12 words in a specific order. This word combination is unique to your wallet. Make sure to have pen and paper ready so you can write it down.',
+                'A recovery phrase is a series of 12 words in a specific order.\nThis word combination is unique to your wallet. Make sure to have pen and paper ready so you can write it down.',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 15, color: Colors.grey[700]),
+                style: TextStyle(fontSize: 17, color: Colors.grey[700]),
               ),
-              Spacer(),
+              const Spacer(),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: Navigate to next screen in create wallet flow
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RecoveryPhrase(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text('Continue', style: TextStyle(fontSize: 16, color: Colors.white)),
+                  child: const Text(
+                    'Continue',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
             ],
           ),
         ),
