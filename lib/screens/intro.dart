@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'recovery_phrase.dart';
 
 class Intro extends StatelessWidget {
-  const Intro({Key? key}) : super(key: key);
+  const Intro({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: const BackButton(color: Colors.black),
@@ -42,7 +42,7 @@ class Intro extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const RecoveryPhrase(),
+                        builder: (final context) => const RecoveryPhrase(),
                       ),
                     );
                   },

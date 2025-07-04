@@ -13,7 +13,7 @@ class BitcoinWalletApp extends StatelessWidget {
     return MaterialApp(
       title: 'Bitcoin Wallet',
       theme: ThemeData(primarySwatch: Colors.orange, fontFamily: 'Arial'),
-      home: CoverScreen(),
+      home: const CoverScreen(),
     );
   }
 }

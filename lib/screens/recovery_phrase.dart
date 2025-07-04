@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bip39/bip39.dart' as bip39;
+import 'phrase_success.dart';
 
 class RecoveryPhrase extends StatefulWidget {
   const RecoveryPhrase({super.key}); // Use super parameter for key
@@ -77,17 +78,20 @@ class _RecoveryPhraseState extends State<RecoveryPhrase> {
                           Text(
                             '${index + 1}',
                             style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.black87,
-                              fontWeight: FontWeight.bold),
+                              fontSize: 16,
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                           const SizedBox(width: 8),
-                          Text(_mnemonicWords[index],
-                              style: const TextStyle(
-                                fontSize: 16,
-                                color: Colors.black87,
-                                fontWeight: FontWeight.bold,
-                              )),
+                          Text(
+                            _mnemonicWords[index],
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.black87,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ],
                       ),
                     );
@@ -134,12 +138,17 @@ class _RecoveryPhraseState extends State<RecoveryPhrase> {
               ),
               const SizedBox(height: 14),
 
-              // Verify button
+              // Continue button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: Navigate to verification screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RecoverySuccessScreen(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
@@ -149,7 +158,7 @@ class _RecoveryPhraseState extends State<RecoveryPhrase> {
                     ),
                   ),
                   child: const Text(
-                    'Verify',
+                    'Continue',
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),

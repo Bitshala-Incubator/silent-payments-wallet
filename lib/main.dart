@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/cover.dart';
 
 void main() {
-  runApp(BitcoinWalletApp());
+  runApp(const BitcoinWalletApp());
 }
 
 class BitcoinWalletApp extends StatelessWidget {
@@ -17,7 +17,7 @@ class BitcoinWalletApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: CoverScreen(),
+      home: const CoverScreen(),
     );
   }
 }

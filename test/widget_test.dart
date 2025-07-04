@@ -11,9 +11,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:silent_payments_wallet/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Counter increments smoke test', (
+    final WidgetTester tester,
+  ) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(BitcoinWalletApp());
+    await tester.pumpWidget(const BitcoinWalletApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
