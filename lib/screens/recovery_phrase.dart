@@ -146,7 +146,8 @@ class _RecoveryPhraseState extends State<RecoveryPhrase> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const RecoverySuccessScreen(),
+                        builder: (final context) =>
+                            const RecoverySuccessScreen(),
                       ),
                     );
                   },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 
 class RecoverySuccessScreen extends StatelessWidget {
   const RecoverySuccessScreen({super.key});
@@ -46,8 +47,13 @@ class RecoverySuccessScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: Proceed to wallet home or dashboard
-                    Navigator.popUntil(context, (final route) => route.isFirst);
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                        builder: (final context) => const HomeScreen(),
+                      ),
+                      (final route) => false, // Clear back stack
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
@@ -56,7 +62,10 @@ class RecoverySuccessScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text('Done!', style: TextStyle(fontSize: 16,color: Colors.white)),
+                  child: const Text(
+                    'Done!',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
                 ),
               ),
             ],
