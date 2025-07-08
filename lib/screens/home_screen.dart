@@ -13,9 +13,9 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
               // Top Row
-              Row(
+              const Row(
                 children: [
                   CircleAvatar(
                     radius: 15,
@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
 
               // Balance Section
               Text(
