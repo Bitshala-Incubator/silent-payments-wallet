@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'send_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -154,7 +155,12 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        // TODO: Navigate to Send screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (final context) => const SendScreen(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
