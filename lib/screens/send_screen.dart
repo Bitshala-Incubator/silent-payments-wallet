@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'send_amount_screen.dart';
 
 class SendScreen extends StatefulWidget {
   const SendScreen({Key? key}) : super(key: key);
@@ -21,8 +22,12 @@ class _SendScreenState extends State<SendScreen> {
   void _handleContinue() {
     if (_formKey.currentState!.validate()) {
       final address = _addressController.text.trim();
-      // TODO: Navigate to next screen and pass this address
-      print('Sending to: $address');
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SendAmountScreen(recipientAddress: address),
+        ),
+      );
     }
   }
 
