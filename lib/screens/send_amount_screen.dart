@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'send_confirm_screen.dart';
 
 class SendAmountScreen extends StatefulWidget {
   final String recipientAddress;
@@ -29,8 +30,15 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
   void _onContinue() {
     if (_amount.isEmpty || double.tryParse(_amount) == null) return;
 
-    // TODO: Navigate to confirmation screen and pass address & amount
-    print('Send ${_amount} BTC to ${widget.recipientAddress}');
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => SendConfirmScreen(
+          recipientAddress: widget.recipientAddress,
+          amount: _amount,
+        ),
+      ),
+    );
   }
 
   @override
@@ -103,7 +111,10 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text('Continue', style: TextStyle(fontSize: 16, color: Colors.white)),
+                  child: Text(
+                    'Continue',
+                    style: TextStyle(fontSize: 16, color: Colors.white),
+                  ),
                 ),
               ),
               SizedBox(height: 24),
