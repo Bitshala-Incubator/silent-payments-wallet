@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'send_success_screen.dart';
 
 class SendConfirmScreen extends StatelessWidget {
   final String recipientAddress;
@@ -39,7 +40,11 @@ class SendConfirmScreen extends StatelessWidget {
               SizedBox(height: 24),
 
               _buildField('To', recipientAddress),
-              _buildField('Amount', '$amount'' sats'),
+              _buildField(
+                'Amount',
+                '$amount'
+                    ' sats',
+              ),
               _buildField('Fee', fee),
               _buildField('Time', timestamp),
 
@@ -47,10 +52,10 @@ class SendConfirmScreen extends StatelessWidget {
 
               ElevatedButton(
                 onPressed: () {
-                  // TODO: Replace with send logic + navigate to "sent" screen
-                  print('Sending $amount BTC to $recipientAddress');
-
-                  Navigator.pushNamed(context, '/send/success');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => SendSuccessScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
@@ -59,7 +64,10 @@ class SendConfirmScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                child: Text('Send', style: TextStyle(fontSize: 16,color: Colors.white)),
+                child: Text(
+                  'Send',
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
               ),
               SizedBox(height: 24),
             ],
