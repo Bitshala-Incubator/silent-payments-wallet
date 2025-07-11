@@ -43,7 +43,6 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
 
   @override
   Widget build(final BuildContext context) {
-    final fiatValue = '₹0.00'; // placeholder
     final availableBalance = '00sats'; // placeholder
 
     return Scaffold(
