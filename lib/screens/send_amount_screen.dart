@@ -4,8 +4,7 @@ import 'send_confirm_screen.dart';
 class SendAmountScreen extends StatefulWidget {
   final String recipientAddress;
 
-  const SendAmountScreen({Key? key, required this.recipientAddress})
-    : super(key: key);
+  const SendAmountScreen({super.key, required this.recipientAddress});
 
   @override
   State<SendAmountScreen> createState() => _SendAmountScreenState();
@@ -14,11 +13,12 @@ class SendAmountScreen extends StatefulWidget {
 class _SendAmountScreenState extends State<SendAmountScreen> {
   String _amount = '';
 
-  void _appendDigit(String digit) {
+  void _appendDigit(final String digit) {
     setState(() {
       if (digit == '←') {
-        if (_amount.isNotEmpty)
+        if (_amount.isNotEmpty) {
           _amount = _amount.substring(0, _amount.length - 1);
+        }
       } else if (digit == '.' && _amount.contains('.')) {
         return; // prevent multiple decimals
       } else {
@@ -33,7 +33,7 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => SendConfirmScreen(
+        builder: (final context) => SendConfirmScreen(
           recipientAddress: widget.recipientAddress,
           amount: _amount,
         ),
@@ -42,13 +42,13 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final fiatValue = '₹0.00'; // placeholder
     final availableBalance = '00sats'; // placeholder
 
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -58,25 +58,18 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             children: [
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
 
               // BTC input display
               Text(
                 _amount.isEmpty ? '0' : _amount,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.5,
                 ),
               ),
-              SizedBox(height: 8),
-
-              // Fiat value display
-              Text(
-                fiatValue,
-                style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-              ),
-              SizedBox(height: 4),
+              const SizedBox(height: 8),
 
               // Balance display
               Text(
@@ -84,7 +77,7 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
                 style: TextStyle(fontSize: 14, color: Colors.grey[500]),
               ),
 
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
 
               // Custom keypad
               Expanded(
@@ -106,18 +99,18 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
                   onPressed: _onContinue,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Continue',
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
             ],
           ),
         ),
@@ -125,12 +118,12 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
     );
   }
 
-  Widget _buildKeypadRow(List<String> digits) {
+  Widget _buildKeypadRow(final List<String> digits) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: digits.map((d) {
+        children: digits.map((final d) {
           return GestureDetector(
             onTap: () => _appendDigit(d),
             child: Container(
@@ -138,7 +131,7 @@ class _SendAmountScreenState extends State<SendAmountScreen> {
               height: 60,
               alignment: Alignment.center,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
-              child: Text(d, style: TextStyle(fontSize: 24)),
+              child: Text(d, style: const TextStyle(fontSize: 24)),
             ),
           );
         }).toList(),

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'send_amount_screen.dart';
 
 class SendScreen extends StatefulWidget {
-  const SendScreen({Key? key}) : super(key: key);
+  const SendScreen({super.key});
 
   @override
   State<SendScreen> createState() => _SendScreenState();
@@ -25,7 +25,7 @@ class _SendScreenState extends State<SendScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SendAmountScreen(recipientAddress: address),
+          builder: (final context) => SendAmountScreen(recipientAddress: address),
         ),
       );
     }
@@ -39,15 +39,15 @@ class _SendScreenState extends State<SendScreen> {
       });
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text('Address pasted from clipboard')));
+      ).showSnackBar(const SnackBar(content: Text('Address pasted from clipboard')));
     }
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -60,15 +60,15 @@ class _SendScreenState extends State<SendScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 24),
-                Text(
+                const SizedBox(height: 24),
+                const Text(
                   'Choose a recipient',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
 
-                Text('Address', style: TextStyle(fontSize: 14)),
-                SizedBox(height: 8),
+                const Text('Address', style: TextStyle(fontSize: 14)),
+                const SizedBox(height: 8),
 
                 // Address Input
                 TextFormField(
@@ -82,7 +82,7 @@ class _SendScreenState extends State<SendScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                          icon: Icon(Icons.paste, color: Colors.grey),
+                          icon: const Icon(Icons.paste, color: Colors.grey),
                           onPressed: _pasteFromClipboard,
                         ),
                         // iconbuttons for QR code and contact picker
@@ -98,7 +98,7 @@ class _SendScreenState extends State<SendScreen> {
                       ],
                     ),
                   ),
-                  validator: (value) {
+                  validator: (final value) {
                     if (value == null || value.trim().isEmpty) {
                       return 'Please enter a valid address';
                     }
@@ -106,19 +106,19 @@ class _SendScreenState extends State<SendScreen> {
                   },
                 ),
 
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
 
                 // Continue Button
                 ElevatedButton(
                   onPressed: _handleContinue,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Continue',
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),

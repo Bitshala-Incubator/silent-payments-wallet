@@ -7,13 +7,13 @@ class SendConfirmScreen extends StatelessWidget {
   final String amount;
 
   const SendConfirmScreen({
-    Key? key,
+    super.key,
     required this.recipientAddress,
     required this.amount,
-  }) : super(key: key);
+  });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     final String fee = '0.0'; // placeholder
     final String timestamp = DateFormat.yMMMd().add_jm().format(
       DateTime.now(),
@@ -21,7 +21,7 @@ class SendConfirmScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(color: Colors.black),
+        leading: const BackButton(color: Colors.black),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -32,12 +32,12 @@ class SendConfirmScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 24),
-              Text(
+              const SizedBox(height: 24),
+              const Text(
                 'Ready to send?',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
 
               _buildField('To', recipientAddress),
               _buildField(
@@ -48,28 +48,28 @@ class SendConfirmScreen extends StatelessWidget {
               _buildField('Fee', fee),
               _buildField('Time', timestamp),
 
-              Spacer(),
+              const Spacer(),
 
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => SendSuccessScreen()),
+                    MaterialPageRoute(builder: (_) => const SendSuccessScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.orange,
-                  padding: EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   'Send',
                   style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
             ],
           ),
         ),
@@ -77,7 +77,7 @@ class SendConfirmScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildField(String label, String value) {
+  Widget _buildField(final String label, final String value) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Row(
@@ -85,7 +85,7 @@ class SendConfirmScreen extends StatelessWidget {
         children: [
           SizedBox(
             width: 80,
-            child: Text(label, style: TextStyle(fontWeight: FontWeight.w500)),
+            child: Text(label, style: const TextStyle(fontWeight: FontWeight.w500)),
           ),
           Expanded(
             child: Text(value, style: TextStyle(color: Colors.grey[800])),

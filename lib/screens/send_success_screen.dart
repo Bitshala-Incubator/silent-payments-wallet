@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
 class SendSuccessScreen extends StatelessWidget {
-  const SendSuccessScreen({Key? key}) : super(key: key);
+  const SendSuccessScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(final BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -15,19 +15,19 @@ class SendSuccessScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Success Icon
-              CircleAvatar(
+              const CircleAvatar(
                 radius: 40,
                 backgroundColor: Colors.green,
                 child: Icon(Icons.check, size: 40, color: Colors.white),
               ),
-              SizedBox(height: 32),
+              const SizedBox(height: 32),
 
               // Title
-              Text(
+              const Text(
                 'Transaction sent',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
 
               // Subtext
               Text(
@@ -35,7 +35,7 @@ class SendSuccessScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 14, color: Colors.grey[600]),
               ),
-              SizedBox(height: 48),
+              const SizedBox(height: 48),
 
               // Done Button
               SizedBox(
@@ -45,18 +45,18 @@ class SendSuccessScreen extends StatelessWidget {
                     // Clear stack and return to wallet home
                     Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (_) => HomeScreen()),
-                      (route) => false,
+                      MaterialPageRoute(builder: (_) => const HomeScreen()),
+                      (final route) => false,
                     );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     'Done',
                     style: TextStyle(fontSize: 16, color: Colors.white),
                   ),
