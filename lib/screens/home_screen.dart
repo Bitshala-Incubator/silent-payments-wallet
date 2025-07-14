@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'send_screen.dart';
+import 'receive_payment_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -132,8 +133,11 @@ class HomeScreen extends StatelessWidget {
                   Expanded(
                     child: ElevatedButton(
                       onPressed: () {
-                        // TODO: Navigate to Receive screen
-                      },
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (_) => const ReceivePaymentScreen()),
+  );
+},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(vertical: 16),
